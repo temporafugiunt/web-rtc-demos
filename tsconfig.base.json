@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@webrtc-demos/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@webrtc-demos/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@webrtc-demos/material": ["libs/material/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -25,7 +25,10 @@
               "apps/meet-app/src/favicon.ico",
               "apps/meet-app/src/assets"
             ],
-            "styles": ["apps/meet-app/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "apps/meet-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -199,6 +202,36 @@
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "webrtc-demos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/material/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }
