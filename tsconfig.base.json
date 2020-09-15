@@ -17,7 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@webrtc-demos/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@webrtc-demos/material": ["libs/material/src/index.ts"]
+      "@webrtc-demos/material": ["libs/material/src/index.ts"],
+      "@webrtc-demos/ui-login": ["libs/ui-login/src/index.ts"],
+      "@webrtc-demos/ui-toolbar": ["libs/ui-toolbar/src/index.ts"],
+      "@webrtc-demos/core-data": ["libs/core-data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
