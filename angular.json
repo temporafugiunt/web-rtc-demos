@@ -10,7 +10,7 @@
       },
       "root": "apps/meet-app",
       "sourceRoot": "apps/meet-app/src",
-      "prefix": "webrtc-demos",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

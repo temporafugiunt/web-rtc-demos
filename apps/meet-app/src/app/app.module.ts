@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@webrtc-demos/material';
+import { AppRoutingModule } from './app-routing.module';
+import { ProjectsModule } from './projects/projects.module';
+import { UiLoginModule } from '@webrtc-demos/ui-login';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +16,8 @@ import { MaterialModule } from '@webrtc-demos/material';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    UiLoginModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
