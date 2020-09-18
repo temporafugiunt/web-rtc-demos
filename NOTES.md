@@ -31,7 +31,7 @@ npx create-nx-workspace webrtc-demos
 nx add @angular/material
 npx ng g lib material
 # Created Material Module exports
-npx ng g lib ui-login -p=ui
+npx ng g lib ui-toolbar -p=ui
 ```
 
 # Running Projects Locally

@@ -44,7 +44,7 @@
     "ui-toolbar": {
       "tags": []
     },
-    "core-data": {
+    "auth": {
       "tags": []
     }
   }

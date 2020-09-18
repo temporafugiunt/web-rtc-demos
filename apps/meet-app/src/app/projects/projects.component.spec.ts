@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '@webrtc-demos/material';
 
 import { ProjectsComponent } from './projects.component';
 
@@ -8,9 +9,9 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectsComponent ]
-    })
-    .compileComponents();
+      declarations: [ProjectsComponent],
+      imports: [MaterialModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

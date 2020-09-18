@@ -9,9 +9,19 @@
     <mat-icon>{{ icon }}</mat-icon>
   </span>
   <span class="spacer"></span>
-  <button class="login" mat-mini-fab (click)="login()">
+  <button
+    *ngIf="$isAuthenticated; else loginBtn"
+    class="login"
+    mat-mini-fab
+    (click)="logout()"
+  >
     <mat-icon>person</mat-icon>
   </button>
+  <ng-template #loginBtn>
+    <button class="login" mat-mini-fab (click)="login()">
+      <mat-icon>login</mat-icon>
+    </button>
+  </ng-template>
 </mat-toolbar>
 
 <mat-sidenav-container>

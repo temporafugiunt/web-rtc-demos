@@ -295,26 +295,26 @@
         }
       }
     },
-    "core-data": {
+    "auth": {
       "projectType": "library",
-      "root": "libs/core-data",
-      "sourceRoot": "libs/core-data/src",
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
       "prefix": "webrtc-demos",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/core-data/tsconfig.lib.json",
-              "libs/core-data/tsconfig.spec.json"
+              "libs/auth/tsconfig.lib.json",
+              "libs/auth/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/core-data/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/auth/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/core-data/jest.config.js",
+            "jestConfig": "libs/auth/jest.config.js",
             "passWithNoTests": true
           }
         }
