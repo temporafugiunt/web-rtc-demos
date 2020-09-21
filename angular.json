@@ -324,6 +324,36 @@
           "style": "scss"
         }
       }
+    },
+    "google": {
+      "projectType": "library",
+      "root": "libs/google",
+      "sourceRoot": "libs/google/src",
+      "prefix": "webrtc-demos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/google/tsconfig.lib.json",
+              "libs/google/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/google/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/google/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

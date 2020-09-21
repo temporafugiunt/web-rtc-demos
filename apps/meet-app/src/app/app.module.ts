@@ -11,9 +11,16 @@ import { AuthModule } from '@webrtc-demos/auth';
 
 import * as fromServices from './services';
 import { RedirectComponent } from './redirect/redirect.component';
+import { HomeComponent } from './home/home.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
-  declarations: [AppComponent, RedirectComponent],
+  declarations: [
+    AppComponent,
+    RedirectComponent,
+    HomeComponent,
+    ProjectsComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

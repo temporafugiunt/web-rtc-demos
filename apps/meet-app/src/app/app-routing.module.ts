@@ -4,6 +4,7 @@ import { AuthGuard } from '@webrtc-demos/auth';
 import { LoginComponent } from '@webrtc-demos/ui-login';
 import { HomeComponent } from './home/home.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
   {
@@ -11,13 +12,10 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
     path: 'projects',
-    loadChildren: () =>
-      import('./projects/projects.module').then((m) => m.ProjectsModule),
+    // loadChildren: () =>
+    //   import('./projects/projects.module').then((m) => m.ProjectsModule),
+    component: ProjectsComponent,
     canActivate: [AuthGuard],
   },
   {

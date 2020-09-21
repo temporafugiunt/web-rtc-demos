@@ -7,7 +7,11 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(public oidcSecurityService: OidcSecurityService) {}
+  public isAuthenticated$: Observable<boolean>;
+
+  constructor(public oidcSecurityService: OidcSecurityService) {
+    this.isAuthenticated$ = oidcSecurityService.isAuthenticated$;
+  }
 
   public checkAuth(): Observable<boolean> {
     return this.oidcSecurityService.checkAuth();
@@ -19,17 +23,5 @@ export class AuthService {
 
   public logout(): void {
     return this.oidcSecurityService.logoff();
-  }
-
-  public isAuthorized(): Observable<boolean> {
-    return this.oidcSecurityService.isAuthenticated$.pipe(
-      map((isAuthorized: boolean) => {
-        if (!isAuthorized) {
-          return false;
-        }
-
-        return true;
-      })
-    );
   }
 }

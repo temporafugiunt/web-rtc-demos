@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   hello$ = this.http.get<Message>('/api/hello');
+  isAuthenticated = false;
+
   icon = 'campaign';
   title = 'Web RTC Demos';
   links = [
@@ -25,12 +27,10 @@ export class AppComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  $isAuthenticated = false;
-
   ngOnInit(): void {
     this.authService
       .checkAuth()
-      .subscribe((auth) => (this.$isAuthenticated = auth));
+      .subscribe((auth) => (this.isAuthenticated = auth));
   }
 
   public login() {
@@ -38,8 +38,9 @@ export class AppComponent implements OnInit {
   }
 
   public logout() {
+    debugger;
     this.authService.logout();
-    this.$isAuthenticated = false;
-    this.router.navigateByUrl('/home');
+    this.isAuthenticated = false;
+    this.router.navigateByUrl('/info');
   }
 }

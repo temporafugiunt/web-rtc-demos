@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@webrtc-demos/auth';
 
@@ -7,12 +7,17 @@ import { AuthService } from '@webrtc-demos/auth';
   templateUrl: './redirect.component.html',
   styleUrls: ['./redirect.component.scss'],
 })
-export class RedirectComponent implements OnInit {
+export class RedirectComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.authService
-      .checkAuth()
-      .subscribe((auth) => this.router.navigateByUrl('/projects'));
+    this.authService.checkAuth().subscribe((isAuth) => {
+      debugger;
+      if (isAuth) {
+        this.router.navigateByUrl('/projects');
+      }
+    });
   }
+
+  ngOnDestroy(): void {}
 }

@@ -10,7 +10,7 @@
   </span>
   <span class="spacer"></span>
   <button
-    *ngIf="$isAuthenticated; else loginBtn"
+    *ngIf="isAuthenticated; else loginBtn"
     class="login"
     mat-mini-fab
     (click)="logout()"
