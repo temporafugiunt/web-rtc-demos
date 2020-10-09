@@ -62,7 +62,7 @@
     "@angular/compiler-cli": "^10.0.0",
     "@angular/language-service": "^10.0.0",
     "@angular-devkit/build-angular": "~0.1000.0",
-    "codelyzer": "~5.0.1",
+    "codelyzer": "~6.0.1",
     "jest-preset-angular": "8.2.1",
     "@nrwl/jest": "10.2.0",
     "jest": "26.2.2",
