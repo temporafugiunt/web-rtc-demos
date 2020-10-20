@@ -22,7 +22,7 @@ npm i -g @nrwl/schematics
 npm i -g nx
 ```
 
-# Initial Setup
+# Initial Setup of App and Some Libraries
 
 The project was initially setup using this command:
 
@@ -32,6 +32,25 @@ nx add @angular/material
 npx ng g lib material
 # Created Material Module exports
 npx ng g lib ui-toolbar -p=ui
+npx ng g lib google
+```
+
+# Setup of Modules and Components in the Main App
+
+Here we are going to setup the Projects Module and component with routing enabled. Didn't actually keep this in but this is an example.
+
+```bash
+npx ng g m projects --routing
+npx ng g c projects
+```
+
+# Generate Components for a Library
+
+An example project library was added above called google, we are now going to add some components:
+
+```bash
+npx ng g s datastore/datastore --project=google
+npx ng g s calendar/calendar --project=google
 ```
 
 # Running Projects Locally

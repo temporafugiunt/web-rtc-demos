@@ -12,7 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'projects',
+    path: 'connections',
     // loadChildren: () =>
     //   import('./projects/projects.module').then((m) => m.ProjectsModule),
     component: ProjectsComponent,

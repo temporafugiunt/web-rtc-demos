@@ -4,7 +4,7 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h1>Projects</h1>
+          <h1 i18n="page-title">Connections</h1>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
@@ -39,14 +39,8 @@
       </mat-card-header>
       <form>
         <mat-card-content>
-          <!-- PROJECT FORM HERE -->
+          <ng-template #viewContainerRef></ng-template>
         </mat-card-content>
-        <mat-card-actions>
-          <button type="submit" mat-button color="primary">Connect</button>
-          <button type="button" (click)="unselectProject()" mat-button>
-            Hang Up
-          </button>
-        </mat-card-actions>
       </form>
     </mat-card>
   </div>

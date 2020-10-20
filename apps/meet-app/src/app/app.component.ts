@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   title = 'Web RTC Demos';
   links = [
     { path: '/', icon: 'info', title: 'Info' },
-    { path: '/projects', icon: 'phone', title: 'Projects' },
+    { path: '/connections', icon: 'phone', title: 'Connections' },
   ];
 
   constructor(

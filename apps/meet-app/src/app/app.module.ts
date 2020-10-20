@@ -13,6 +13,8 @@ import * as fromServices from './services';
 import { RedirectComponent } from './redirect/redirect.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { MeetConnectionOrganizerComponent } from './meet-connection-organizer/meet-connection-organizer.component';
+import { MeetConnectionParticipantComponent } from './meet-connection-participant/meet-connection-participant.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ProjectsComponent } from './projects/projects.component';
     RedirectComponent,
     HomeComponent,
     ProjectsComponent,
+    MeetConnectionOrganizerComponent,
+    MeetConnectionParticipantComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,5 +36,6 @@ import { ProjectsComponent } from './projects/projects.component';
   ],
   providers: [...fromServices.services],
   bootstrap: [AppComponent],
+  entryComponents: [ MeetConnectionOrganizerComponent, MeetConnectionParticipantComponent ]
 })
 export class AppModule {}

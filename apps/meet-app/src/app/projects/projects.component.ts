@@ -1,44 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef, OnDestroy, ComponentRef } from '@angular/core';
+import { MeetConnectionOrganizerComponent } from '../meet-connection-organizer/meet-connection-organizer.component';
+import { MeetConnectionParticipantComponent } from '../meet-connection-participant/meet-connection-participant.component';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
   projects = [
     {
       id: '1',
-      title: 'Individual Connect Via Meet',
-      details:
-        'This scenario uses Google Meet to enable individual communication',
+      title: 'Connect to Meet as an Organizer',
+      details: 'This scenario uses Google Meet to enable individual and group communication as the organizer',
       icon: 'phone_in_talk',
+      componentClass: MeetConnectionOrganizerComponent
     },
     {
       id: '2',
-      title: 'Group Connect Via Meet',
-      details: 'This scenario uses Google Meet to enable group communication',
+      title: 'Connect to Existing Meet as a Participant',
+      details: 'This scenario uses Google Meet to enable individual and group communication as a participant',
       icon: 'connect_without_contact',
-    },
-    {
-      id: '3',
-      title: 'Individual Connect Via OpenTok',
-      details: 'This scenario uses OpenTok to enable individual communication',
-      icon: 'phone_in_talk',
-    },
-    {
-      id: '4',
-      title: 'Individual Connect Via OpenTok',
-      details: 'This scenario uses OpenTok to enable group communication',
-      icon: 'connect_without_contact',
+      componentClass: MeetConnectionParticipantComponent
     },
   ];
   currentProject = null;
+  @ViewChild('viewContainerRef', {read: ViewContainerRef}) currentProjectComponent: ViewContainerRef;
+  currentComponent: any = null;
 
-  constructor() {}
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
+  }
 
   public selectProject(project) {
+    console.log(project.componentClass);
     this.currentProject = project;
+    if(this.currentComponent) {
+      this.currentProjectComponent.remove(0);
+    }
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(project.componentClass);
+    this.currentComponent = this.currentProjectComponent.createComponent(componentFactory);
   }
 
   public unselectProject() {
@@ -46,4 +46,10 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  ngOnDestroy() : void {
+    if(this.currentComponent) {
+      this.currentProjectComponent.remove(0);
+    }
+  }
 }
