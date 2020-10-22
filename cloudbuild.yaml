@@ -27,7 +27,7 @@ steps:
   name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-R', 'dist/apps/meet-app', '${_APP_BUCKET_PATH}']
 
-- id: rsync-app-to-storage
+- id: rsync-api-to-storage
   name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-R', 'dist/apps/api', '${_API_BUCKET_PATH}']
 
