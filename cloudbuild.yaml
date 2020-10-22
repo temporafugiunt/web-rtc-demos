@@ -15,12 +15,10 @@ steps:
   args:
   - '-c'
   - |
-     pwd
-     ls -la
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/app/environments/environment.dev.ts
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/app/environments/environment.prod.ts
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/app/environments/environment.dev.ts
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/app/environments/environment.prod.ts
+     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.dev.ts
+     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.prod.ts
+     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.dev.ts
+     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.prod.ts
 
 - name: 'gcr.io/$PROJECT_ID/ng:latest'
   args: ['build', '${_NG_BUILD_CONFIG}']
