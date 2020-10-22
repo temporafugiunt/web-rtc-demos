@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
   }
 
   public logout() {
-    debugger;
     this.authService.logout();
     this.isAuthenticated = false;
     this.router.navigateByUrl('/info');

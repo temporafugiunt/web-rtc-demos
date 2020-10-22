@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   stsServer: 'https://accounts.google.com',
   clientId:
     '825376869634-o9a5fjuv60psrbej5mccd6nitb94tdnm.apps.googleusercontent.com',
