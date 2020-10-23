@@ -9,6 +9,10 @@ steps:
   env:
     - 'PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true'
 
+- name: node:lts
+  entrypoint: npm
+  args: ['install', '-g', '@angular/cli@10.2.0']
+
 - name: 'gcr.io/cloud-builders/gcloud'
   id: version id for environment files
   entrypoint: /bin/sh
@@ -21,11 +25,8 @@ steps:
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.prod.ts
 
 - name: node:lts
-  args:
-  - '-c'
-  - |
-      npm install -g @angular/cli@10.2.0
-      ng build ${_NG_BUILD_CONFIG}
+  entrypoint: npm
+  args: [ 'run', 'ng', 'build', '${_NG_BUILD_CONFIG}' ]
 
 - id: rsync-app-to-storage
   name: gcr.io/cloud-builders/gsutil
