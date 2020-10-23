@@ -15,13 +15,17 @@ steps:
   args:
   - '-c'
   - |
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.dev.ts
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.prod.ts
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.dev.ts
-     sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.prod.ts
+      sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.dev.ts
+      sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.prod.ts
+      sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.dev.ts
+      sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.prod.ts
 
-- name: 'gcr.io/$PROJECT_ID/ng:latest'
-  args: ['build', '${_NG_BUILD_CONFIG}']
+- name: node:lts
+  args:
+  - '-c'
+  - |
+      npm install -g @angular/cli@10.0.0
+      build ${_NG_BUILD_CONFIG}
 
 - id: rsync-app-to-storage
   name: gcr.io/cloud-builders/gsutil
