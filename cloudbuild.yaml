@@ -26,7 +26,7 @@ steps:
 
 - name: node:lts
   entrypoint: npm
-  args: [ 'run', 'ng', 'build', '${_NG_BUILD_CONFIG}' ]
+  args: [ 'run', 'ng', 'build', '${_NG_BUILD_CONFIG}', '--base-href', './' ]
 
 - id: rsync-app-to-storage
   name: gcr.io/cloud-builders/gsutil
