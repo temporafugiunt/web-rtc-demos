@@ -19,7 +19,6 @@ steps:
   args:
   - '-c'
   - |
-      ls -la
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.dev.ts
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.prod.ts
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.dev.ts
@@ -28,6 +27,16 @@ steps:
 - name: node:lts
   entrypoint: npm
   args: [ 'run', 'ng', 'build', '${_NG_BUILD_CONFIG}', '--base-href=/www-devsandbox-static-site/' ]
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: build output debugging
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+      ls -la
+      ls -laR dist/
+
 
 - id: rsync-app-to-storage
   name: gcr.io/cloud-builders/gsutil
