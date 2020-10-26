@@ -19,7 +19,7 @@ steps:
   args:
   - '-c'
   - |
-      ls -laR dist/
+      ls -la
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.dev.ts
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/api/src/environments/environment.prod.ts
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.dev.ts
