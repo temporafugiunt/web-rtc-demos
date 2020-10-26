@@ -59,6 +59,6 @@ steps:
     - '-r'
     - '-h'
     - 'Cache-Control:no-cache, no-store, max-age=0, must-revalidate'
-    - '${_BUCKET_PATH}/index.html'
+    - '${_APP_BUCKET_PATH}/index.html'
 options:
   machineType: 'N1_HIGHCPU_8'
