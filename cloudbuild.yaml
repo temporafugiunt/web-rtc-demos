@@ -27,7 +27,7 @@ steps:
 - name: node:lts
   id: build app
   entrypoint: npm
-  args: [ 'run', 'build', '--', '${_NG_BUILD_CONFIG}', '--baseHref=/www-devsandbox-static-site/', '--deployUrl=/www-devsandbox-static-site/' ]
+  args: [ 'run', 'build', '--', '${_NG_BUILD_CONFIG}', '--localize', '--baseHref=/www-devsandbox-static-site/', '--deployUrl=/www-devsandbox-static-site/' ]
 
 - name: node:lts
   id: build api
