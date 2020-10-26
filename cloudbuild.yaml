@@ -25,18 +25,23 @@ steps:
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.prod.ts
 
 - name: node:lts
+  id: build app
   entrypoint: npm
   args: [ 'run', 'ng', 'build', '${_NG_BUILD_CONFIG}', '--base-href=/www-devsandbox-static-site/' ]
 
-- name: 'gcr.io/cloud-builders/gcloud'
-  id: build output debugging
-  entrypoint: /bin/sh
-  args:
-  - '-c'
-  - |
-      ls -la
-      ls -laR dist/
+- name: node:lts
+  id: build api
+  entrypoint: npm
+  args: [ 'run', 'ng', 'build', 'api', '${_NG_BUILD_CONFIG}' ]
 
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   id: build output debugging
+#   entrypoint: /bin/sh
+#   args:
+#   - '-c'
+#   - |
+#       ls -la
+#       ls -laR dist/
 
 - id: rsync-app-to-storage
   name: gcr.io/cloud-builders/gsutil
