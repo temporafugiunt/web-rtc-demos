@@ -7,7 +7,9 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "ng serve --disable-host-check",
+    "start-es": "ng serve --disable-host-check --configuration=es",
     "build": "ng build",
+    "build-mlang": "ng build --localize",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
@@ -44,6 +46,8 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nrwl/angular": "10.2.0",
     "angular-auth-oidc-client": "^11.2.0",
+    "googleapis": "^61.0.0",
+    "googleapis-common": "^4.4.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.5",
     "zone.js": "^0.10.2"

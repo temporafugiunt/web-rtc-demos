@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarService } from '@webrtc-demos/google';
 
 @Component({
   selector: 'app-meet-connection-organizer',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeetConnectionOrganizerComponent implements OnInit {
 
-  constructor() { }
+  // constructor(private calendarService: CalendarService) { }
 
   ngOnInit(): void {
+  }
+
+  public async createMeeting() {
+    // await this.calendarService.createCalendarEvent();
   }
 
 }

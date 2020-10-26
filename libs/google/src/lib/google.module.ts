@@ -5,7 +5,6 @@ import { CalendarService } from './calendar/calendar.service';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [DatastoreService, CalendarService],
-  exports: [DatastoreService, CalendarService]
+  providers: [DatastoreService, CalendarService]
 })
 export class GoogleModule {}

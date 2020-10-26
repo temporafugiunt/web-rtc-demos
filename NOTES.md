@@ -62,3 +62,8 @@ ng serve api
 ```bash
 ng serve meet-app
 ```
+
+### Running i18n Extraction and Merge
+
+Run `npm install -g ngx-i18nsupport` to install the necessary packages.  
+Then run `npm run extract-merge` to automatically extract new information and merge it into the previous translation file.

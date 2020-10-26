@@ -8,6 +8,12 @@
           "style": "scss"
         }
       },
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "es": "apps/meet-app/src/i18n/messages.es.xlf"
+        }
+      },
       "root": "apps/meet-app",
       "sourceRoot": "apps/meet-app/src",
       "prefix": "app",
@@ -59,6 +65,9 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "es": {
+              "localize": ["es"]
             }
           }
         },

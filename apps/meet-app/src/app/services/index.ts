@@ -1,5 +1,6 @@
 import { environment } from '../../environments/environment';
 import { AUTH_ENVIRONMENT, AuthEnvironmentModel } from '@webrtc-demos/auth';
+import { CalendarService } from '@webrtc-demos/google';
 
 const authSettings: AuthEnvironmentModel = {
   stsServer: environment.stsServer,
@@ -15,4 +16,5 @@ const authSettings: AuthEnvironmentModel = {
 
 export const services: any[] = [
   { provide: AUTH_ENVIRONMENT, useValue: authSettings },
+  // CalendarService,
 ];
