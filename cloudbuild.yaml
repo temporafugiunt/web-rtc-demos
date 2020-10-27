@@ -40,7 +40,7 @@ steps:
 - id: build-api
   name: node:lts
   entrypoint: npm
-  args: [ 'run', 'build', '--', 'api', '${_NG_BUILD_CONFIG}' ]
+  args: [ 'run', 'build', '--', 'api', '--configuration=${_NG_BUILD_CONFIG}' ]
 
 # - name: 'gcr.io/cloud-builders/gcloud'
 #   id: build output debugging
