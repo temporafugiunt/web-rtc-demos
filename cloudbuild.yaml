@@ -26,13 +26,19 @@ steps:
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.dev.ts
       sed -i "s/APPLICATION_VERSION/${SHORT_SHA}/g" apps/meet-app/src/environments/environment.prod.ts
 
-- name: node:lts
-  id: build app
+- id: build-english-app
+  name: node:lts
   entrypoint: npm
-  args: [ 'run', 'build', '--', '${_NG_BUILD_CONFIG}', '--localize', '--baseHref=${_APP_BASE_HREF}', '--deployUrl=${_APP_DEPLOY_URL}' ]
+  args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG}', '--outputPath=dist/apps/meet-app/en', '--baseHref=${_APP_BASE_HREF}/en', '--deployUrl=${_APP_DEPLOY_URL}/en' ]
 
-- name: node:lts
-  id: build api
+- id: build-spanish-app
+  name: node:lts
+  entrypoint: npm
+  args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG},es', '--outputPath=dist/apps/meet-app/es', '--baseHref=${_APP_BASE_HREF}/es', '--deployUrl=${_APP_DEPLOY_URL}/es' ]
+
+
+- id: build-api
+  name: node:lts
   entrypoint: npm
   args: [ 'run', 'build', '--', 'api', '${_NG_BUILD_CONFIG}' ]
 
@@ -53,7 +59,7 @@ steps:
   name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-R', 'dist/apps/api', '${_API_BUCKET_PATH}']
 
-- id: never-cache-index
+- id: never-cache-index-en
   name: gcr.io/cloud-builders/gsutil
   args:
     - '-m'
@@ -61,6 +67,16 @@ steps:
     - '-r'
     - '-h'
     - 'Cache-Control:no-cache, no-store, max-age=0, must-revalidate'
-    - '${_APP_BUCKET_PATH}/index.html'
+    - '${_APP_BUCKET_PATH}/en/index.html'
+
+- id: never-cache-index-es
+  name: gcr.io/cloud-builders/gsutil
+  args:
+    - '-m'
+    - 'setmeta'
+    - '-r'
+    - '-h'
+    - 'Cache-Control:no-cache, no-store, max-age=0, must-revalidate'
+    - '${_APP_BUCKET_PATH}/es/index.html'
 options:
   machineType: 'N1_HIGHCPU_8'
