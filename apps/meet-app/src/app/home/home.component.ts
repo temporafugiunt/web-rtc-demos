@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
-import { PlatformLocation } from '@angular/common';
+import { PlatformLocation, Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'webrtc-demos-home',
@@ -9,10 +10,12 @@ import { PlatformLocation } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(platformLocation: PlatformLocation) {
+  constructor(platformLocation: PlatformLocation, router: Router, location: Location) {
     console.log((platformLocation as any).location);
     console.log((platformLocation as any).location.href);
     console.log((platformLocation as any).location.origin);
+    console.log(location); 
+    console.log(location.prepareExternalUrl(""));
   }
 
   ngOnInit(): void {
