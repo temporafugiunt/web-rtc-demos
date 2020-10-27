@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'webrtc-demos-home',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(platformLocation: PlatformLocation) {
+    console.log((platformLocation as any).location);
+    console.log((platformLocation as any).location.href);
+    console.log((platformLocation as any).location.origin);
+  }
 
   ngOnInit(): void {
   }
