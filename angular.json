@@ -67,6 +67,8 @@
               ]
             },
             "dev": {
+              "optimization": false,
+              "sourceMap": true,
               "fileReplacements": [
                 {
                   "replace": "apps/meet-app/src/environments/environment.ts",
