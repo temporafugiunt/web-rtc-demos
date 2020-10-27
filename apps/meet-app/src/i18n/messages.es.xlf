@@ -8,7 +8,7 @@
       </notes>
       <segment state="initial">
         <source>Web RTC Demo</source>
-        <target>Web RTC Demo</target>
+        <target>Demostración web de RTC</target>
       </segment>
     </unit>
     <unit id="redirect.logging-in-listitem">
@@ -19,7 +19,7 @@
       </notes>
       <segment state="initial">
         <source>Logging in... Please Wait...</source>
-        <target>Logging in... Please Wait...</target>
+        <target>Iniciando sesión... Espere...</target>
       </segment>
     </unit>
     <unit id="home.page-header">
@@ -29,7 +29,7 @@
       </notes>
       <segment state="initial">
         <source>Web RTC Demo</source>
-        <target>Web RTC Demo</target>
+        <target>Demostración web de RTC</target>
       </segment>
     </unit>
     <unit id="home.page-description-listitem">
@@ -42,9 +42,9 @@
         <source>This application demonstrates several technologies that can be used
             for Real time communication between individuals and groups using
             Google Cloud Identity as the Identity provider.</source>
-        <target>This application demonstrates several technologies that can be used
-            for Real time communication between individuals and groups using
-            Google Cloud Identity as the Identity provider.</target>
+        <target>Esta aplicación demuestra varias tecnologías que se pueden utilizar
+            para la comunicación en tiempo real entre individuos y grupos utilizando
+            Google Cloud Identity como proveedor de identidades.</target>
       </segment>
     </unit>
     <unit id="projects.page-header">
@@ -54,7 +54,25 @@
       </notes>
       <segment state="initial">
         <source>Connections</source>
-        <target>Connections</target>
+        <target>Conexiones</target>
+      </segment>
+    </unit>
+    <unit id="strings.info-page-title">
+      <segment state="initial">
+        <source>Info</source>
+        <target>Información</target>
+      </segment>
+    </unit>
+    <unit id="strings.projects-page-title">
+      <segment state="initial">
+        <source>Connections</source>
+        <target>Conexiones</target>
+      </segment>
+    </unit>
+    <unit id="strings.application-title">
+      <segment state="initial">
+        <source>Web RTC Demo</source>
+        <target>Demostración web de RTC</target>
       </segment>
     </unit>
   </file>

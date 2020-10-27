@@ -1,5 +1,7 @@
 substitutions:
   _APP_BUCKET_PATH: ''
+  _APP_DEPLOY_URL: '/'
+  _APP_BASE_HREF: '/'
   _API_BUCKET_PATH: ''
   _NG_BUILD_CONFIG: ''
 steps:
@@ -27,7 +29,7 @@ steps:
 - name: node:lts
   id: build app
   entrypoint: npm
-  args: [ 'run', 'build', '--', '${_NG_BUILD_CONFIG}', '--localize', '--baseHref=/www-devsandbox-static-site/', '--deployUrl=/www-devsandbox-static-site/' ]
+  args: [ 'run', 'build', '--', '${_NG_BUILD_CONFIG}', '--localize', '--baseHref=${_APP_BASE_HREF}', '--deployUrl=${_APP_DEPLOY_URL}' ]
 
 - name: node:lts
   id: build api

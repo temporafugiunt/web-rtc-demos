@@ -66,6 +66,14 @@
                 }
               ]
             },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/meet-app/src/environments/environment.ts",
+                  "with": "apps/meet-app/src/environments/environment.dev.ts"
+                }
+              ]
+            },
             "es": {
               "localize": ["es"]
             }
@@ -80,6 +88,9 @@
           "configurations": {
             "production": {
               "browserTarget": "meet-app:build:production"
+            },
+            "es": {
+              "browserTarget": "meet-app:build:es"
             }
           }
         },
@@ -159,6 +170,14 @@
                 {
                   "replace": "apps/api/src/environments/environment.ts",
                   "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.dev.ts"
                 }
               ]
             }

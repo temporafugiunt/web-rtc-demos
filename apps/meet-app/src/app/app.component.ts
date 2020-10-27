@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
   isAuthenticated = false;
 
   icon = 'campaign';
-  title = 'Web RTC Demos';
+  title = $localize`:|Application Title@@strings.application-title:Web RTC Demos`;
   links = [
-    { path: '/', icon: 'info', title: 'Info' },
-    { path: '/connections', icon: 'phone', title: 'Connections' },
+    { path: '/', icon: 'info', title: $localize`:|Info Page Title@@strings.info-page-title:Info` },
+    { path: '/connections', icon: 'phone', title: $localize`:|Projects Page Title@@strings.projects-page-title:Connections` },
   ];
 
   constructor(
