@@ -68,7 +68,7 @@ steps:
     - '-r'
     - '-h'
     - 'Cache-Control:no-cache, no-store, max-age=0, must-revalidate'
-    - '${_APP_BUCKET_PATH}/en/index.html'
+    - '${_APP_BUCKET_PATH}/en/*.*'
 
 - id: never-cache-index-es
   name: gcr.io/cloud-builders/gsutil
@@ -78,6 +78,6 @@ steps:
     - '-r'
     - '-h'
     - 'Cache-Control:no-cache, no-store, max-age=0, must-revalidate'
-    - '${_APP_BUCKET_PATH}/es/index.html'
+    - '${_APP_BUCKET_PATH}/es/*.*'
 options:
   machineType: 'N1_HIGHCPU_8'
