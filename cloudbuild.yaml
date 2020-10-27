@@ -29,12 +29,12 @@ steps:
 - id: build-english-app
   name: node:lts
   entrypoint: npm
-  args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG}', '--outputPath=dist/apps/meet-app/en', '--baseHref=${_APP_BASE_HREF}/en', '--deployUrl=${_APP_DEPLOY_URL}/en' ]
+  args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG}', '--outputPath=dist/apps/meet-app/en', '--baseHref=${_APP_BASE_HREF}en/', '--deployUrl=${_APP_DEPLOY_URL}en/' ]
 
 - id: build-spanish-app
   name: node:lts
   entrypoint: npm
-  args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG},es', '--outputPath=dist/apps/meet-app/es', '--baseHref=${_APP_BASE_HREF}/es', '--deployUrl=${_APP_DEPLOY_URL}/es' ]
+  args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG},es', '--outputPath=dist/apps/meet-app/es', '--baseHref=${_APP_BASE_HREF}es/', '--deployUrl=${_APP_DEPLOY_URL}es/' ]
 
 
 - id: build-api
