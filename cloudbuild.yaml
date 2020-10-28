@@ -31,12 +31,19 @@ steps:
   entrypoint: npm
   args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG}', '--outputPath=dist/apps/meet-app/en', '--baseHref=${_APP_BASE_HREF}en/', '--deployUrl=${_APP_DEPLOY_URL}en/' ]
 
+- id: rsync-app-to-storage-en
+  name: gcr.io/cloud-builders/gsutil
+  args: ['rsync', '-R', 'dist/apps/meet-app', '${_APP_BUCKET_PATH}']
+
 # A language build already includes the localization id as a part of the output directory structure and the base Href.
 - id: build-spanish-app
   name: node:lts
   entrypoint: npm
   args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG},es', '--outputPath=dist/apps/meet-app', '--baseHref=${_APP_BASE_HREF}', '--deployUrl=${_APP_DEPLOY_URL}es/' ]
 
+- id: rsync-app-to-storage-es
+  name: gcr.io/cloud-builders/gsutil
+  args: ['rsync', '-R', 'dist/apps/meet-app', '${_APP_BUCKET_PATH}']
 
 - id: build-api
   name: node:lts
@@ -51,10 +58,6 @@ steps:
 #   - |
 #       ls -la
 #       ls -laR dist/
-
-- id: rsync-app-to-storage
-  name: gcr.io/cloud-builders/gsutil
-  args: ['rsync', '-R', 'dist/apps/meet-app', '${_APP_BUCKET_PATH}']
 
 - id: rsync-api-to-storage
   name: gcr.io/cloud-builders/gsutil
