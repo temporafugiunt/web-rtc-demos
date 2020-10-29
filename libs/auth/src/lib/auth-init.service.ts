@@ -20,16 +20,17 @@ export class AuthInitService {
 
   public configureAuth(): Promise<any> {
     let logLevel = LogLevel.Error;
+    const redirectUrl = (this.platformLocation as any).location.origin + this.location.prepareExternalUrl(this.authEnvironmentModel.redirectUrl)
     if (isDevMode) {
       console.log(
-        `configureAuth running for STS Server ${this.authEnvironmentModel.stsServer} with clientId ${this.authEnvironmentModel.clientId}`
+        `configureAuth running for STS Server: ${this.authEnvironmentModel.stsServer} with clientId: ${this.authEnvironmentModel.clientId} and redirectUrl: ${redirectUrl}`
       );
       logLevel = LogLevel.Debug;
     }
 
     return this.oidcConfigService.withConfig({
       stsServer: this.authEnvironmentModel.stsServer,
-      redirectUrl: (this.platformLocation as any).location.origin + this.location.prepareExternalUrl(this.authEnvironmentModel.redirectUrl),
+      redirectUrl,
       postLogoutRedirectUri: (this.platformLocation as any).location.origin + this.location.prepareExternalUrl(this.authEnvironmentModel.postLogoutRedirectUri),
       clientId: this.authEnvironmentModel.clientId,
       scope: this.authEnvironmentModel.scope,
