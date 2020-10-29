@@ -41,9 +41,9 @@ steps:
   entrypoint: npm
   args: [ 'run', 'build', '--', '--configuration=${_NG_BUILD_CONFIG},es', '--outputPath=dist/apps/meet-app', '--baseHref=${_APP_BASE_HREF}', '--deployUrl=${_APP_DEPLOY_URL}es/' ]
 
-- id: rsync-app-to-storage-es
+- id: rsync-app-to-storage-redirect-client-app
   name: gcr.io/cloud-builders/gsutil
-  args: ['rsync', '-R', 'dist/apps/meet-app', '${_APP_BUCKET_PATH}']
+  args: ['rsync', '-R', 'redirect-client-app/index.html', '${_APP_BUCKET_PATH}']
 
 - id: build-api
   name: node:lts

@@ -10,7 +10,7 @@
     "start-es": "ng serve --disable-host-check --configuration=es",
     "build": "ng build",
     "build-mlang": "ng build --localize",
-    "build-mlang-local": "ng build --localize && cp ./server/app.js ./dist/apps/meet-app/app.js",
+    "build-mlang-local": "ng build --localize && cp ./redirect-local-server/app.js ./dist/apps/meet-app/app.js",
     "start-mlang-local": "node ./dist/apps/meet-app/app.js",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
