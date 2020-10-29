@@ -43,7 +43,7 @@ steps:
 
 - id: rsync-app-to-storage-redirect-client-app
   name: gcr.io/cloud-builders/gsutil
-  args: ['rsync', '-R', 'redirect-client-app/index.html', '${_APP_BUCKET_PATH}']
+  args: ['rsync', '-R', 'redirect-client-app', '${_APP_BUCKET_PATH}']
 
 - id: build-api
   name: node:lts
