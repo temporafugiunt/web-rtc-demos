@@ -15,7 +15,7 @@ export class AuthInitService {
     private authEnvironmentModel: AuthEnvironmentModel,
     private oidcConfigService: OidcConfigService,
     private platformLocation: PlatformLocation,
-    private location: Location
+    private location: Location,
   ) {}
 
   public configureAuth(): Promise<any> {

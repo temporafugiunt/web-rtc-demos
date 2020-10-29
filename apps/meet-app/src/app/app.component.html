@@ -39,6 +39,15 @@
         </mat-icon>
         {{ link.title }}
       </a>
+      <a mat-button class="nav-link" (click)="switchLanguage()">
+        <mat-icon>
+          translate
+        </mat-icon>
+        <ng-container
+          i18n="|Page title for projects component@@app.switch-language-menu"
+          >Switch Language</ng-container
+        >
+      </a>
     </nav>
   </mat-sidenav>
 

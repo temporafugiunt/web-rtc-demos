@@ -75,5 +75,17 @@
         <target>Demostración web de RTC</target>
       </segment>
     </unit>
+    <unit id="strings.other-language">
+      <segment state="initial">
+        <source>es</source>
+        <target>en</target>
+      </segment>
+    </unit>
+    <unit id="app.switch-language-menu">
+      <segment state="initial">
+        <source>Switch Language</source>
+        <target>Cambiar idioma</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
