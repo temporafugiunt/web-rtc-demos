@@ -63,6 +63,16 @@ steps:
   name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-R', 'dist/apps/api', '${_API_BUCKET_PATH}']
 
+- id: never-cache-redirect-client-app
+  name: gcr.io/cloud-builders/gsutil
+  args:
+    - '-m'
+    - 'setmeta'
+    - '-r'
+    - '-h'
+    - 'Cache-Control:no-cache, no-store, max-age=0, must-revalidate'
+    - '${_APP_BUCKET_PATH}/*.*'
+
 - id: never-cache-index-en
   name: gcr.io/cloud-builders/gsutil
   args:
