@@ -1,16 +1,16 @@
 <html>
   <head>
     <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script> -->
-    <script src="../js.cookie.js"></script>
+    <script src="/js.cookie.js"></script>
     <script>
       function getLanguagePath() {
         const lang = Cookies.get('language');
         console.log(`LANGUAGE: ${lang}`);
         return (
           {
-            en: '/en',
-            es: '/es',
-          }[lang] || '/en'
+            en: '/en/index.html',
+            es: '/es/index.html',
+          }[lang] || '/en/index.html'
         );
       }
 
