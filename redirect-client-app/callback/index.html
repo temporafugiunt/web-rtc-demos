@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script> -->
+    <script src="../js.cookie.js"></script>
+    <script>
+      function getLanguagePath() {
+        const lang = Cookies.get('language');
+        console.log(`LANGUAGE: ${lang}`);
+        return (
+          {
+            en: '/en',
+            es: '/es',
+          }[lang] || '/en'
+        );
+      }
+
+      window.document.location.href =
+        getLanguagePath() + window.location.search;
+    </script>
+  </head>
+  <body></body>
+</html>
